@@ -6,6 +6,11 @@ function displayTemperature(response) {
     temperatureElement.innerHTML= Math.round(response.data.main.temp);
     let weatherElement=document.querySelector("#description");
     weatherElement.innerHTML=response.data.weather[0].description;
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = response.data.main.humidity;
+    let windElement = document.querySelector("#wind");
+    windElement.innerHTML= Math.round(response.data.wind.speed);
+    
 }
 
 let apiKey="d4aba3dd194534017243141841b8b193";
