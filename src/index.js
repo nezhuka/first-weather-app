@@ -22,7 +22,6 @@ function formatDate(timestamp){
 }
 
 function displayTemperature(response) {
-    console.log(response.data);
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML=response.data.name;
     let temperatureElement=document.querySelector("#temperature");
@@ -38,7 +37,8 @@ function displayTemperature(response) {
 }
 
 let apiKey="d4aba3dd194534017243141841b8b193";
+let city = "London";
 let apiUrl =
-  `https://api.openweathermap.org/data/2.5/weather?q=Melitopol&appid=${apiKey}&units=metric`;
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
