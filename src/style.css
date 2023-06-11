@@ -16,15 +16,16 @@ li {
     list-style: none;
     margin: 0;
     padding: 0;
-    text-transform: capitalize;
     color: #4C72D3;
     font-size: 15px;
     font-weight: 100;
     line-height: 25px;
 }
-    li .speed-units{
-    text-transform:lowercase;
-}
+    li.first-letter {
+        text-transform: capitalize;
+    }
+
+
 .weather-app-wrapper {
 max-width: 600px;
     margin: 30px auto;
