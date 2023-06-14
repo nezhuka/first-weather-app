@@ -55,6 +55,21 @@ max-width: 600px;
 .weather-temperature .active:hover {
     text-decoration: none;
 }
-
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+}
+.weather-forecast-date {
+    color: #4C72D3;
+    opacity: 0.8;
+    
+}
+.weather-forecast-temperature{
+    font-size: 13px;
+    color: #4C72D3;
+}
+.weather-forecast-temperature-min {
+    opacity: 0.6;
+}
 
 
