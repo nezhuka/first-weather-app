@@ -20,7 +20,8 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
-function displayWeatherForecast() {
+function displayWeatherForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -48,8 +49,17 @@ function displayWeatherForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  
 }
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "8cac06f7ab6c10287cd06a316ff84a57";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unuts=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayWeatherForecast);
+}
+
+
 function displayTemperature(response) {
   console.log(response.data);
   let cityElement = document.querySelector("#city");
@@ -72,7 +82,8 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  console.log(response.data);
+  
+  getForecast(response.data.coord);
 }
 let apiKey = "d4aba3dd194534017243141841b8b193";
 let city = "Melitopol";
@@ -119,4 +130,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 search("Melitopol");
-displayWeatherForecast();
